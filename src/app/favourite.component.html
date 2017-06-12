@@ -1,0 +1,19 @@
+<div id="fav">
+  <div *ngIf="moviedata">
+   <div *ngFor="let movie of moviedata" class="container" >
+    <section class="col-md-6 "> <img [src]="'http://image.tmdb.org/t/p/w300' + movie.poster_path"/></section>
+    <section class="col-md-6">
+    <section id="title"><h1>Title:</h1>{{movie.title}}</section>
+    <section id="release"><h1>Release Date:</h1>{{movie.release_date}}</section>
+      <section id="release"><h1>Rating:</h1>{{movie.vote_average}}</section><input id="input" type="text" [(ngModel)]="rate" name="rating">
+    <section id="review"><h1>Movie Review:</h1>{{movie.overview}}</section>
+    <section id="genre_ids"><h1>Genre:</h1>{{genreId(movie.genre_ids)}} </section>
+     <!--<a href="" class="btn btn-large btn-danger" (click)="addToFav(movie)">Add to favourite</a></section>-->
+     <button type="button" class="btn btn-large btn-danger" (click)="deleteMovie(movie.id)" >Delete</button>
+     <button type="button" class="btn btn-large btn-danger" (click)="updateMovie(movie,rate)" >Update</button>
+   
+    </section> </div> 
+  </div>
+</div>
+    
+

@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+footer {
+    position: fixed;
+    bottom: 1px;
+    color: white;
+  
+
+}
+span {
+    margin-left: 20px;
+    font-size: 150%; 
+}

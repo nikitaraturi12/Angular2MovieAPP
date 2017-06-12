@@ -1,0 +1,34 @@
+<div class="container" id="main">
+ <div id="push-down"><label for="usr">Search your movie here:<input type="text" class="form-control" [(ngModel)]="query" name="query" id="usr"></label>
+  <button type="button" class="btn btn-large btn-danger" (click)="search()" id="peer">
+    <span class="glyphicon glyphicon-search" ></span> Search
+  </button>
+  </div> 
+</div>
+
+ <div class="search-results"
+            infinite-scroll
+            [infiniteScrollDistance]="50000"
+            [infiniteScrollThrottle]="300"
+            (scrolled)="onScroll(query)">
+        </div>
+        <div id="display">
+<div *ngIf="movies" >
+  
+   <div *ngFor="let movie of movies" class="container">
+    <section class="col-md-6 "> <img [src]="'http://image.tmdb.org/t/p/w300' + movie.poster_path"/></section>
+    <section class="col-md-6">
+    <section id="title"><h1>Title:</h1>{{movie.title}}</section>
+    <section id="release"><h1>Release Date:</h1>{{movie.release_date}}</section>
+    <section id="review"><h1>Movie Review:</h1>   {{movie.overview}}</section>
+    <section id="genre_ids"><h1>Genre:</h1>   {{genre(movie.genre_ids)}} 
+     <button type="button"  class="btn btn-large btn-danger" (click)="addToFav(movie)">Add to favourite  </button>  </section>
+      
+    </section>
+    
+  </div>
+  <section class="container">
+    <div *ngIf="_Search.page !== totalpage" ><h2  id="nodata">No movies Found</h2></div></section>
+   
+</div>
+</div>
